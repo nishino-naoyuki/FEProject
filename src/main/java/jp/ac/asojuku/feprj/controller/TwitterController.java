@@ -7,18 +7,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class IndexController {
-	@RequestMapping(value= {"top","/"}, method=RequestMethod.GET)
-	public ModelAndView top(ModelAndView mv,@RequestParam(name="flg", required = false)Boolean flg) {
-		
-		if( flg != null ) {
-			mv.addObject("flg", flg);
-		}else {
-			mv.addObject("flg", false);
+public class TwitterController {
+
+	@RequestMapping(value= {"twitter"}, method=RequestMethod.GET)
+	public ModelAndView top(ModelAndView mv,@RequestParam(name="id", required = false)Integer id) {
+		if( id==0 ) {
+			mv.setViewName("twitter");
 		}
-		mv.setViewName("top");
-		
 		return mv;
 	}
-
 }

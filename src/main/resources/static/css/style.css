@@ -24,7 +24,6 @@ body{
 
 .cp_iptxt {
 	position: relative;
-	width: 80%;
 	margin: 40px 3%;
 }
 .cp_iptxt input[type='text'] {
@@ -114,16 +113,13 @@ a:active, a:focus,input:active, input:focus{outline:0;}
 	position: relative;
   overflow: hidden;
   width: 100%;
-  height: 528px;
+  text-align: center;
 }
 
 #mainImg img{
-	position: absolute;
-  left: 50%;
+	position: relative;
 	max-width: 1280px;
-  width: 1280px;
-  height: 528px;
-  margin-left: -640px;
+  	width: 80%;
 }
 
 
