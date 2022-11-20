@@ -12,6 +12,9 @@ public class TwitterController {
 	@RequestMapping(value= {"twitter"}, method=RequestMethod.GET)
 	public ModelAndView top(ModelAndView mv,@RequestParam(name="id", required = false)Integer id) {
 		if( id==0 ) {
+			mv.addObject("headerlogo", "logo.png");
+			mv.addObject("icon", "sotoku.png");
+			mv.addObject("name", "総督");
 			mv.setViewName("twitter");
 		}
 		return mv;
