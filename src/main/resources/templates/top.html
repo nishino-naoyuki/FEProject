@@ -5,7 +5,7 @@
 <meta name="description" content="最新技術と自然との調和を目指す">
 <meta name="viewport" content="width=device-width">
 <title>FE HERO AKADEMIA</title>
-<link rel="stylesheet" media="all" href="/css/style.css">
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script src="js/script.js"></script>
 </head>
@@ -19,7 +19,7 @@
 </th:block>
 <header id="header">
 	<div id="headerWrap">
-		<h1><img src="images/logo.png" width="142" height="80" alt="logo"></h1>
+		<h1><img th:src="@{/images/logo.png}" width="142" height="80" alt="logo"></h1>
 		<nav id="mainnav">
 			<p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>
 			<div class="panel">
@@ -36,7 +36,7 @@
 </header>
 
 <div id="mainImg">
-	<img src="images/logo.png" alt="">
+	<img th:src="@{/images/logo.png}" alt="">
 </div>
 <!-- MESSAGE -->
 <section id="sec01">
@@ -45,24 +45,24 @@
 	</header>
 	<div class="innerS">
 		<p>問題を解いて得られたキーワードを使って、暗号を解け</p>
-		<img src='images/26.png'  alt='26'>
-		<img src='images/4.png'  alt='4'>
-		<img src='images/2.png'  alt='2'>
-		<img src='images/23.png'  alt='23'>
-		<img src='images/31.png'  alt='31'>
-		<img src='images/21.png'  alt='21'>
-		<img src='images/31.png'  alt='31'>
-		<img src='images/4.png'  alt='4'>
-		<img src='images/9.png'  alt='9'>
-		<img src='images/29.png'  alt='29'>
-		<img src='images/27.png'  alt='27'>
-		<img src='images/12.png'  alt='12'>
-		<img src='images/11.png'  alt='11'>
-		<img src='images/1.png'  alt='1'>
-		<img src='images/17.png'  alt='17'>
-		<img src='images/13.png'  alt='13'>
-		<img src='images/22.png'  alt='22'>
-		<form action="/ans/q1" method="post">
+		<img th:src="@{/images/26.png}"  alt='26'>
+		<img th:src="@{/images/4.png}"  alt='4'>
+		<img th:src="@{/images/2.png}"  alt='2'>
+		<img th:src="@{/images/23.png}"  alt='23'>
+		<img th:src="@{/images/31.png}"  alt='31'>
+		<img th:src="@{/images/21.png}"  alt='21'>
+		<img th:src="@{/images/31.png}"  alt='32'>
+		<img th:src="@{/images/4.png}"  alt='5'>
+		<img th:src="@{/images/9.png}"  alt='9'>
+		<img th:src="@{/images/29.png}"  alt='29'>
+		<img th:src="@{/images/27.png}"  alt='27'>
+		<img th:src="@{/images/12.png}"  alt='12'>
+		<img th:src="@{/images/11.png}"  alt='11'>
+		<img th:src="@{/images/1.png}"  alt='1'>
+		<img th:src="@{/images/17.png}"  alt='17'>
+		<img th:src="@{/images/13.png}"  alt='13'>
+		<img th:src="@{/images/22.png}"  alt='22'>
+		<form th:action="@{ans/q1}" method="post">
 			<div class="cp_iptxt">
 				<label class="ef">
 				<input type="text" placeholder="学籍番号：" name="orgno">
@@ -86,32 +86,32 @@
 	</header>
 	<div class="innerS">
 		<p>問題を解いて得られたキーワードを使って、暗号を解け</p>
-		<img src='images/7.png'  alt='7'>
-		<img src='images/15.png'  alt='15'>
-		<img src='images/23.png'  alt='23'>
-		<img src='images/1.png'  alt='1'>
-		<img src='images/27.png'  alt='27'>
-		<img src='images/14.png'  alt='14'>
-		<img src='images/1.png'  alt='1'>
-		<img src='images/12.png'  alt='12'>
-		<img src='images/18.png'  alt='18'>
-		<img src='images/16.png'  alt='16'>
-		<img src='images/26.png'  alt='26'>
-		<img src='images/25.png'  alt='25'>
-		<img src='images/9.png'  alt='9'>
-		<img src='images/8.png'  alt='8'>
-		<img src='images/6.png'  alt='6'>
-		<img src='images/20.png'  alt='20'>
-		<img src='images/5.png'  alt='5'>
-		<img src='images/29.png'  alt='29'>
-		<img src='images/23.png'  alt='23'>
-		<img src='images/12.png'  alt='12'>
-		<img src='images/4.png'  alt='4'>
-		<img src='images/22.png'  alt='22'>
-		<img src='images/32.png'  alt='32'>
-		<img src='images/31.png'  alt='31'>
+		<img th:src="@{/images/7.png}"  alt='7'>
+		<img th:src="@{/images/15.png}"  alt='15'>
+		<img th:src="@{/images/23.png}"  alt='23'>
+		<img th:src="@{/images/1.png}"  alt='1'>
+		<img th:src="@{/images/27.png}"  alt='27'>
+		<img th:src="@{/images/14.png}"  alt='14'>
+		<img th:src="@{/images/1.png}"  alt='2'>
+		<img th:src="@{/images/12.png}"  alt='12'>
+		<img th:src="@{/images/18.png}"  alt='18'>
+		<img th:src="@{/images/16.png}"  alt='16'>
+		<img th:src="@{/images/26.png}"  alt='26'>
+		<img th:src="@{/images/25.png}"  alt='25'>
+		<img th:src="@{/images/9.png}"  alt='9'>
+		<img th:src="@{/images/8.png}"  alt='8'>
+		<img th:src="@{/images/6.png}"  alt='6'>
+		<img th:src="@{/images/20.png}"  alt='20'>
+		<img th:src="@{/images/5.png}"  alt='5'>
+		<img th:src="@{/images/29.png}"  alt='29'>
+		<img th:src="@{/images/23.png}"  alt='24'>
+		<img th:src="@{/images/12.png}"  alt='13'>
+		<img th:src="@{/images/4.png}"  alt='4'>
+		<img th:src="@{/images/22.png}"  alt='22'>
+		<img th:src="@{/images/32.png}"  alt='32'>
+		<img th:src="@{/images/31.png}"  alt='31'>
 		<p>
-		<form action="/ans/q2" method="post">
+		<form th:action="@{ans/q2}" method="post">
 			<div class="cp_iptxt">
 				<label class="ef">
 				<input type="text" placeholder="学籍番号：" name="orgno">
@@ -135,24 +135,24 @@
 	</header>
 	<div class="innerS">
 		<p>問題を解いて得られたキーワードを使って、暗号を解け</p>
-		<img src='images/4.png'  alt='4'>
-		<img src='images/31.png'  alt='31'>
-		<img src='images/3.png'  alt='3'>
-		<img src='images/5.png'  alt='5'>
-		<img src='images/17.png'  alt='17'>
-		<img src='images/13.png'  alt='13'>
-		<img src='images/32.png'  alt='32'>
-		<img src='images/15.png'  alt='15'>
-		<img src='images/27.png'  alt='27'>
-		<img src='images/18.png'  alt='18'>
-		<img src='images/26.png'  alt='26'>
-		<img src='images/11.png'  alt='11'>
-		<img src='images/1.png'  alt='1'>
-		<img src='images/22.png'  alt='22'>
-		<img src='images/20.png'  alt='20'>
-		<img src='images/23.png'  alt='23'>
+		<img th:src="@{/images/4.png}"  alt='4'>
+		<img th:src="@{/images/31.png}"  alt='31'>
+		<img th:src="@{/images/3.png}"  alt='3'>
+		<img th:src="@{/images/5.png}"  alt='5'>
+		<img th:src="@{/images/17.png}"  alt='17'>
+		<img th:src="@{/images/13.png}"  alt='13'>
+		<img th:src="@{/images/32.png}"  alt='32'>
+		<img th:src="@{/images/15.png}"  alt='15'>
+		<img th:src="@{/images/27.png}"  alt='27'>
+		<img th:src="@{/images/18.png}"  alt='18'>
+		<img th:src="@{/images/26.png}"  alt='26'>
+		<img th:src="@{/images/11.png}"  alt='11'>
+		<img th:src="@{/images/1.png}"  alt='1'>
+		<img th:src="@{/images/22.png}"  alt='22'>
+		<img th:src="@{/images/20.png}"  alt='20'>
+		<img th:src="@{/images/23.png}"  alt='23'>
 		<p>
-		<form action="/ans/q3" method="post">
+		<form th:action="@{ans/q3}" method="post">
 			<div class="cp_iptxt">
 				<label class="ef">
 				<input type="text" placeholder="こたえ：" name="answer">
@@ -172,28 +172,28 @@
 	</header>
 	<div class="innerS">
 		<p>問題を解いて得られたキーワードを使って、暗号を解け</p>
-		<img src='images/18.png'  alt='18'>
-		<img src='images/28.png'  alt='28'>
-		<img src='images/4.png'  alt='4'>
-		<img src='images/10.png'  alt='10'>
-		<img src='images/17.png'  alt='17'>
-		<img src='images/20.png'  alt='20'>
-		<img src='images/14.png'  alt='14'>
-		<img src='images/23.png'  alt='23'>
-		<img src='images/30.png'  alt='30'>
-		<img src='images/21.png'  alt='21'>
-		<img src='images/2.png'  alt='2'>
-		<img src='images/3.png'  alt='3'>
-		<img src='images/31.png'  alt='31'>
-		<img src='images/12.png'  alt='12'>
-		<img src='images/22.png'  alt='22'>
-		<img src='images/11.png'  alt='11'>
-		<img src='images/6.png'  alt='6'>
-		<img src='images/29.png'  alt='29'>
-		<img src='images/25.png'  alt='25'>
-		<img src='images/13.png'  alt='13'>
+		<img th:src="@{/images/18.png}"  alt='18'>
+		<img th:src="@{/images/28.png}"  alt='28'>
+		<img th:src="@{/images/4.png}"  alt='4'>
+		<img th:src="@{/images/10.png}"  alt='10'>
+		<img th:src="@{/images/17.png}"  alt='17'>
+		<img th:src="@{/images/20.png}"  alt='20'>
+		<img th:src="@{/images/14.png}"  alt='14'>
+		<img th:src="@{/images/23.png}"  alt='23'>
+		<img th:src="@{/images/30.png}"  alt='30'>
+		<img th:src="@{/images/21.png}"  alt='21'>
+		<img th:src="@{/images/2.png}"  alt='2'>
+		<img th:src="@{/images/3.png}"  alt='3'>
+		<img th:src="@{/images/31.png}"  alt='31'>
+		<img th:src="@{/images/12.png}"  alt='12'>
+		<img th:src="@{/images/22.png}"  alt='22'>
+		<img th:src="@{/images/11.png}"  alt='11'>
+		<img th:src="@{/images/6.png}"  alt='6'>
+		<img th:src="@{/images/29.png}"  alt='29'>
+		<img th:src="@{/images/25.png}"  alt='25'>
+		<img th:src="@{/images/13.png}"  alt='13'>
 		<p>
-		<form action="/ans/q4" method="post">
+		<form th:action="@{ans/q4}" method="post">
 			<div class="cp_iptxt">
 				<label class="ef">
 				<input type="text" placeholder="こたえ（半角で入れてね）：" name="answer">

@@ -41,6 +41,7 @@ public class AnswerController {
 			mv.addObject("msg","第１問");
 			mv.addObject("img","coin1.png");
 			mv.addObject("flg",false);
+			mv.addObject("twitter",false);
 			mv.setViewName("ans");
 		}else {
 			mv.addObject("flg",true);
@@ -80,6 +81,7 @@ public class AnswerController {
 			mv.addObject("msg","第2問");
 			mv.addObject("img","coin2.png");
 			mv.addObject("flg",false);
+			mv.addObject("twitter",false);
 			mv.setViewName("ans");
 		}else {
 			mv.addObject("flg",true);
@@ -105,6 +107,7 @@ public class AnswerController {
 			mv.addObject("msg","第3問");
 			mv.addObject("img","coin3.png");
 			mv.addObject("flg",false);
+			mv.addObject("twitter",true);
 			mv.setViewName("ans");
 		}else {
 			mv.addObject("flg",true);
@@ -129,6 +132,7 @@ public class AnswerController {
 			mv.addObject("msg","第4問");
 			mv.addObject("img","coin4.png");
 			mv.addObject("flg",true);
+			mv.addObject("twitter",false);
 			mv.setViewName("ans");
 		}else {
 			mv.addObject("flg",true);
