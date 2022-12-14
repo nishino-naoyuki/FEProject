@@ -142,8 +142,9 @@ public class AnswerController {
 
 	}
 	
-	@RequestMapping(value= {"ans/10100110"}, method=RequestMethod.GET)
+	@RequestMapping(value= {"10100110"}, method=RequestMethod.GET)
 	public ModelAndView ans3(ModelAndView mv) {
+		mv.addObject("img","mao.png");
 		mv.setViewName("mao");
 		return mv;
 	}
