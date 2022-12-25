@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<link rel='stylesheet' th:href="@{/css/battle.css}" />
+</head>
+<body>
+	<audio id="bgm" th:src="@{'/mp3/'+${bgm}}" autoplay loop value="0.5">
+	  あなたのブラウザーは <code>audio</code>要素をサポートしていません。
+	</audio>
+	<audio id="don" th:src="@{'/mp3/'+${don}}"></audio>
+	<div class="btnarea">
+		<a id="bgmonoff" class="btn btn--blue btn--cubic btn--shadow" onclick="javascript:sound();">サウンドOFF</a>
+	</div>
+	<table class="fm">
+	    <tr>
+	        <td th:text="'名前：'+${name}">名前</td>
+	    </tr>
+	</table>
+	<p>
+		<img th:src="@{'/images/'+${img}}" width="250px">
+	</p>
+	<table class="fm">
+	    <tr>
+	        <td>
+	        	問１：<input type="radio" name="q1" value="0">ア&nbsp;<input type="radio" name="q1" value="1">イ&nbsp;<input type="radio" name="q1" value="2">ウ&nbsp;<input type="radio" name="q1" value="3">エ
+	        </td>
+	        <td>
+	        	問２：<input type="radio" name="q2" value="0">ア&nbsp;<input type="radio" name="q2" value="1">イ&nbsp;<input type="radio" name="q2" value="2">ウ&nbsp;<input type="radio" name="q2" value="3">エ
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	問３：<input type="radio" name="q3" value="0">ア&nbsp;<input type="radio" name="q3" value="1">イ&nbsp;<input type="radio" name="q3" value="2">ウ&nbsp;<input type="radio" name="q3" value="3">エ
+	        </td>
+	        <td>
+	        	問４：<input type="radio" name="q4" value="0">ア&nbsp;<input type="radio" name="q4" value="1">イ&nbsp;<input type="radio" name="q4" value="2">ウ&nbsp;<input type="radio" name="q4" value="3">エ
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	問５：<input type="radio" name="q5" value="0">ア&nbsp;<input type="radio" name="q5" value="1">イ&nbsp;<input type="radio" name="q5" value="2">ウ&nbsp;<input type="radio" name="q5" value="3">エ
+	        </td>
+	        <td>
+	        	問６：<input type="radio" name="q6" value="0">ア&nbsp;<input type="radio" name="q6" value="1">イ&nbsp;<input type="radio" name="q6" value="2">ウ&nbsp;<input type="radio" name="q6" value="3">エ
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	問７：<input type="radio" name="q7" value="0">ア&nbsp;<input type="radio" name="q7" value="1">イ&nbsp;<input type="radio" name="q7" value="2">ウ&nbsp;<input type="radio" name="q7" value="3">エ
+	        </td>
+	        <td>
+	        	問８：<input type="radio" name="q8" value="0">ア&nbsp;<input type="radio" name="q8" value="1">イ&nbsp;<input type="radio" name="q8" value="2">ウ&nbsp;<input type="radio" name="q8" value="3">エ
+	        </td>
+	    </tr>
+	    
+	    <tr>
+	        <td>
+	        	問９：<input type="radio" name="q9" value="0">ア&nbsp;<input type="radio" name="q9" value="1">イ&nbsp;<input type="radio" name="q9" value="2">ウ&nbsp;<input type="radio" name="q9" value="3">エ
+	        </td>
+	        <td>
+	        	問１０：<input type="radio" name="q10" value="0">ア&nbsp;<input type="radio" name="q10" value="1">イ&nbsp;<input type="radio" name="q10" value="2">ウ&nbsp;<input type="radio" name="q10" value="3">エ
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	問１１：<input type="radio" name="q11" value="0">ア&nbsp;<input type="radio" name="q11" value="1">イ&nbsp;<input type="radio" name="q11" value="2">ウ&nbsp;<input type="radio" name="q11" value="3">エ
+	        </td>
+	        <td>
+	        	問１２：<input type="radio" name="q12" value="0">ア&nbsp;<input type="radio" name="q12" value="1">イ&nbsp;<input type="radio" name="q12" value="2">ウ&nbsp;<input type="radio" name="q12" value="3">エ
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	問１３：<input type="radio" name="q13" value="0">ア&nbsp;<input type="radio" name="q13" value="1">イ&nbsp;<input type="radio" name="q13" value="2">ウ&nbsp;<input type="radio" name="q13" value="3">エ
+	        </td>
+	        <td>
+	        	問１４：<input type="radio" name="q14" value="0">ア&nbsp;<input type="radio" name="q14" value="1">イ&nbsp;<input type="radio" name="q14" value="2">ウ&nbsp;<input type="radio" name="q14" value="3">エ
+	        </td>
+	    </tr>
+	    <tr>
+	        <td>
+	        	問１５：<input type="radio" name="q15" value="0">ア&nbsp;<input type="radio" name="q15" value="1">イ&nbsp;<input type="radio" name="q15" value="2">ウ&nbsp;<input type="radio" name="q15" value="3">エ
+	        </td>
+	        <td>
+	        	問１６：<input type="radio" name="q16" value="0">ア&nbsp;<input type="radio" name="q16" value="1">イ&nbsp;<input type="radio" name="q16" value="2">ウ&nbsp;<input type="radio" name="q16" value="3">エ
+	        </td>
+	    </tr>
+	    <tr>
+	        <td colspan="2">
+	        	<a id="bgmonoff" class="btn-l btn--blue btn--cubic btn--shadow" onclick="javascript:send();">送信</a>
+	        </td>
+	    </tr>
+	</table>
+	
+	<script th:inline="javascript">
+	let flg=true;
+	function sound(){
+		let soundobj = document.getElementById("bgm");
+		let button = document.getElementById("bgmonoff");
+		if( flg ){
+			soundobj.volume = 0;
+			button.textContent = "サウンドON";
+		}else{
+			soundobj.volume = 0.5;
+			button.textContent = "サウンドOFF";
+		}
+		flg = !flg;
+	}
+	function send(){
+		document.getElementById("don").play();
+		var form = document.createElement('form');
+		let url = /*[[@{/battle/}]]*/ "/battle/";
+		url = url + /*[[${ansurl}]]*/ "";
+		form.action = url;
+    	form.method = 'POST';
+    	document.body.append(form);
+    	form.addEventListener('formdata', (e) => {
+			var fd = e.formData;
+	    	// データをセット
+	    	let arry = [
+	    		"q1","q2","q3","q4","q5",
+	    		"q6","q7","q8","q9","q10",
+	    		"q11","q12","q13","q14","q15",
+	    		"q16"
+	    	];
+
+	    	for(let i=0; i<arry.length;i++){
+	    		fd.set(arry[i], getCheckValue(arry[i]));
+	    	}
+	    });
+	
+	    // submit
+	    form.submit();
+	}
+	function getCheckValue(name){
+		//alert(name);
+		let value=-1;
+		let elements = document.getElementsByName(name);
+		
+		for(var i=0; i < elements.length; i++ ){
+			if(elements[i].checked == true){
+				value = elements[i].value;
+				
+				break;
+			}
+		}
+		return value;
+	}
+	</script>
+</body>
+</html>

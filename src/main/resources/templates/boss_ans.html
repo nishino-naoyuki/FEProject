@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<link rel='stylesheet' th:href="@{/css/battle.css}" />
+</head>
+<body>
+	<audio id="bgm" th:src="@{'/mp3/'+${bgm}}" autoplay loop value="0.5">
+	  あなたのブラウザーは <code>audio</code>要素をサポートしていません。
+	</audio>
+	<div class="btnarea">
+		<a id="bgmonoff" class="btn btn--blue btn--cubic btn--shadow" onclick="javascript:sound();">サウンドOFF</a>
+	</div>
+	<p>
+		<img th:src="@{'/images/'+${img}}" width="250px">
+	</p>
+	<table class="fm">
+	    <tr>
+	        <td th:text="${msg}">
+	        </td>
+	    </tr>
+	</table>
+	
+	<script>
+	let flg=true;
+	function sound(){
+		let soundobj = document.getElementById("bgm");
+		let button = document.getElementById("bgmonoff");
+		if( flg ){
+			soundobj.volume = 0;
+			button.textContent = "サウンドON";
+		}else{
+			soundobj.volume = 0.5;
+			button.textContent = "サウンドOFF";
+		}
+		flg = !flg;
+	}
+	</script>
+</body>
+</html>
