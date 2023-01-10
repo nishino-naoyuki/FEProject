@@ -1,5 +1,6 @@
 package jp.ac.asojuku.feprj.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,10 +9,20 @@ import org.springframework.web.servlet.ModelAndView;
 import jp.ac.asojuku.feprj.form.Answer1Form;
 import jp.ac.asojuku.feprj.form.AnswerMaoForm;
 import jp.ac.asojuku.feprj.form.BattleStartForm;
+import jp.ac.asojuku.feprj.service.AnswerSercvice;
 
 @Controller
 public class BattleController {
+	@Autowired
+	AnswerSercvice answerSercvice;
 
+	/*
+	 * memo table dump
+	 * 
+	 *  mysqldump -u root -pAbcc123.# feproject answer > /home/abcc/dump.sql
+	 *  
+	 *  select * from answer into outfile "/var/lib/mysql-files/dump.csv" fields terminated by ',';
+	 */
 	@RequestMapping(value= {"battle/start"}, method=RequestMethod.GET)
 	public ModelAndView start(ModelAndView mv) {
 		mv.addObject("id","");
@@ -60,7 +71,7 @@ public class BattleController {
 	public ModelAndView mao3(ModelAndView mv,BattleStartForm form) {
 		mv.addObject("name",form.getName());
 		mv.addObject("img","sotoku1.png");
-		mv.addObject("bgm","boss3.mp3");
+		mv.addObject("bgm","boss4.mp3");
 		mv.addObject("don","don.mp3");
 		mv.addObject("ansurl","ans3");
 		mv.setViewName("boss_battle");
@@ -80,10 +91,10 @@ public class BattleController {
 	public ModelAndView ans1(ModelAndView mv,AnswerMaoForm form) {
 		int[] ansList = getAnsList(form);
 		int[] correctAnsList = {
-				0,0,0,0,
-				0,0,0,0,
-				0,0,0,0,
-				0,0,0,0
+				1,1,0,2,
+				0,2,2,2,
+				2,1,0,3,
+				2,2,0,2
 		};
 		//答え合わせ
 		int correctNum = checkAnswer(ansList,correctAnsList);
@@ -103,7 +114,11 @@ public class BattleController {
 		mv.addObject("img",img);
 		mv.addObject("bgm",bgm);
 		mv.addObject("msg",msg);
+		mv.addObject("correctNum",correctNum);
 		mv.setViewName("boss_ans");
+		
+		answerSercvice.insert(form.getName(), correctNum, 0);
+		
 		return mv;
 	}
 
@@ -111,10 +126,10 @@ public class BattleController {
 	public ModelAndView ans2(ModelAndView mv,AnswerMaoForm form) {
 		int[] ansList = getAnsList(form);
 		int[] correctAnsList = {
-				0,0,0,0,
-				0,0,0,0,
-				0,0,0,0,
-				0,0,0,0
+				0,2,2,3,
+				2,2,1,3,
+				2,0,3,1,
+				3,0,2,0
 		};
 		//答え合わせ
 		int correctNum = checkAnswer(ansList,correctAnsList);
@@ -134,7 +149,42 @@ public class BattleController {
 		mv.addObject("img",img);
 		mv.addObject("bgm",bgm);
 		mv.addObject("msg",msg);
+		mv.addObject("correctNum",correctNum);
 		mv.setViewName("boss_ans");
+		answerSercvice.insert(form.getName(), correctNum, 1);
+		return mv;
+	}
+
+	@RequestMapping(value= {"battle/ans3"}, method=RequestMethod.POST)
+	public ModelAndView ans3(ModelAndView mv,AnswerMaoForm form) {
+		int[] ansList = getAnsList(form);
+		int[] correctAnsList = {
+				0,2,2,3,
+				2,2,1,3,
+				2,0,3,1,
+				3,0,2,0
+		};
+		//答え合わせ
+		int correctNum = checkAnswer(ansList,correctAnsList);
+		String img;
+		String bgm = "boss4.mp3";
+		String msg;
+		if(correctNum >= 10) {
+			img = "mao6.png";
+			msg = correctNum+"問正解か！\nぐふっ！やるではないか・・・・";
+		}else if( correctNum >= 8 ) {
+			img = "mao2.png";
+			msg = correctNum+"問正解か！\n中々やりおる、、、しかし、それでは私に勝ったつもりか？";
+		}else {
+			img = "mao2.png";
+			msg = "ふん、修業が足りんわ！出直してくるがよい";
+		}
+		mv.addObject("img",img);
+		mv.addObject("bgm",bgm);
+		mv.addObject("msg",msg);
+		mv.addObject("correctNum",correctNum);
+		mv.setViewName("boss_ans");
+		answerSercvice.insert(form.getName(), correctNum, 2);
 		return mv;
 	}
 	/**

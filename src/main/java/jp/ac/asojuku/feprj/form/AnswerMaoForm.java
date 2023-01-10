@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class AnswerMaoForm {
+	private String name;
 	private int q1;
 	private int q2;
 	private int q3;
