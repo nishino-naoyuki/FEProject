@@ -93,3 +93,8 @@ a.btn--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
+
+.ansimg{
+	max-width: 100%;
+	height: auto;
+}

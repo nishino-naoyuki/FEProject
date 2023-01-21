@@ -74,7 +74,7 @@ public class BattleController {
 		mv.addObject("bgm","boss4.mp3");
 		mv.addObject("don","don.mp3");
 		mv.addObject("ansurl","ans3");
-		mv.setViewName("boss_battle");
+		mv.setViewName("lastboss_battle");
 		return mv;
 	}
 	@RequestMapping(value= {"battle/maoaa86"}, method=RequestMethod.POST)
@@ -114,6 +114,7 @@ public class BattleController {
 		mv.addObject("img",img);
 		mv.addObject("bgm",bgm);
 		mv.addObject("msg",msg);
+		mv.addObject("flg",false);
 		mv.addObject("correctNum",correctNum);
 		mv.setViewName("boss_ans");
 		
@@ -149,6 +150,7 @@ public class BattleController {
 		mv.addObject("img",img);
 		mv.addObject("bgm",bgm);
 		mv.addObject("msg",msg);
+		mv.addObject("flg",false);
 		mv.addObject("correctNum",correctNum);
 		mv.setViewName("boss_ans");
 		answerSercvice.insert(form.getName(), correctNum, 1);
@@ -159,25 +161,28 @@ public class BattleController {
 	public ModelAndView ans3(ModelAndView mv,AnswerMaoForm form) {
 		int[] ansList = getAnsList(form);
 		int[] correctAnsList = {
-				0,2,2,3,
-				2,2,1,3,
-				2,0,3,1,
-				3,0,2,0
+				1,3,0,2,
+				3,2,1,3,
+				0,0,0,0,
+				0,0,0,0
 		};
 		//答え合わせ
 		int correctNum = checkAnswer(ansList,correctAnsList);
 		String img;
 		String bgm = "boss4.mp3";
 		String msg;
-		if(correctNum >= 10) {
-			img = "mao6.png";
-			msg = correctNum+"問正解か！\nぐふっ！やるではないか・・・・";
-		}else if( correctNum >= 8 ) {
-			img = "mao2.png";
-			msg = correctNum+"問正解か！\n中々やりおる、、、しかし、それでは私に勝ったつもりか？";
+		if(correctNum >= 13) {
+			img = "sotoku2.png";
+			msg = correctNum-8+"問正解か！\nぐふっ！やるではないか・・・・";
+			mv.addObject("flg",true);
+		}else if( correctNum >= 11 ) {
+			img = "sotoku1.png";
+			msg = correctNum-8+"問正解か！\n中々やりおる、、、しかし、それでは私に勝ったつもりか？";
+			mv.addObject("flg",false);
 		}else {
-			img = "mao2.png";
+			img = "sotoku1.png";
 			msg = "ふん、修業が足りんわ！出直してくるがよい";
+			mv.addObject("flg",false);
 		}
 		mv.addObject("img",img);
 		mv.addObject("bgm",bgm);

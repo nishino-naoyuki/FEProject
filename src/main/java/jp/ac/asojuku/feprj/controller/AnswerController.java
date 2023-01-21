@@ -148,5 +148,13 @@ public class AnswerController {
 		mv.setViewName("mao");
 		return mv;
 	}
-	
+
+	@RequestMapping(value= {"11010100"}, method=RequestMethod.GET)
+	public ModelAndView sotokutwitter(ModelAndView mv) {
+		mv.addObject("headerlogo", "logo.png");
+		mv.addObject("icon", "sotoku_twitter.png");
+		mv.addObject("name", "裏総督");
+		mv.setViewName("twitter2");
+		return mv;
+	}
 }

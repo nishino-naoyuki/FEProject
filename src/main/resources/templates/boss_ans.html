@@ -21,6 +21,11 @@
 	    </tr>
 	</table>
 	<p th:text="'正解数：'+${correctNum}+'/16'"></p>
+	<th:block th:if="${flg}">
+		<p>
+			<img class="ansimg" th:src="@{/images/nazo2.png}" alt="">
+		</p>
+	</th:block>
 	
 	<script>
 	let flg=true;
